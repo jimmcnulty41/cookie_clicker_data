@@ -29,7 +29,6 @@ function numFromWord(word) {
 }
 
 function display_data(data) {
-	debugger;
 	const sorted = Object.entries(data).sort((a, b) => a[1].cost_per_cookie - b[1].cost_per_cookie);
 	console.log(sorted.reduce((sz, [k, v]) => `${sz}\n${k} - ${v.cost_per_cookie}`, ''));
 }
@@ -124,6 +123,6 @@ function get_upgrade_data() {
 }
 
 function periodically_recalculate() {
-	get_cookie_data();
-	setTimeout(periodically_recalculate, 4000);
+	populate_cookie_data();
+	setTimeout(periodically_recalculate, 10000);
 }
