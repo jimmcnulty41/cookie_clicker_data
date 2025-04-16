@@ -68,6 +68,20 @@ function unpluralize(word) {
 	}
 }
 
+function get_currency(text) {
+	// wizard towers
+	const sdfasfd = text.match(/^Wizard towers/);
+	if (sdfasfd) {
+		return "wizard";
+	}
+	const match_res = text.match(/^[a-zA-Z]+\s/);
+	if (!match_res) {
+		console.error("Didn't find an affected currency in ");
+		console.error(name);
+	}
+	return unpluralize(match_res[0]);
+}
+
 function get_upgrade_data() {
 	console.log(`data starts as:`);
 	console.log(data);
@@ -97,12 +111,8 @@ function get_upgrade_data() {
 
 		if ([...bold].length === 1 || [...bold].length === 2) {
 			if (bold[0].innerText === "twice") {
-				const match_res = text.match(/^[a-zA-Z]+\s/);
-				if (!match_res) {
-					console.error("Didn't find an affected currency in ");
-					console.error(name);
-				}
-				const affected_currency = unpluralize(match_res[0]);
+
+				const affected_currency = get_currency(text);
 				if (!data[affected_currency]) {
 					console.warn(`no data for ${affected_currency}`);
 				}
