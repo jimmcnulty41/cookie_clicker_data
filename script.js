@@ -87,6 +87,7 @@ function get_upgrade_data() {
 		// types: +x%, twice
 		// Cookie production multiplier +x%
 		// Mines are twice as efficient.\nFinally caved in?
+		// Grandmas are twice as efficient. Factories gain +1% CpS per 3 grandmas.\nA nice worker to manufacture more cookies.
 
 		const name = tooltip.querySelector('.name').innerText.toLowerCase();
 		const text = tooltip.querySelector('.description').innerText;
@@ -94,7 +95,7 @@ function get_upgrade_data() {
 		const price = numFromWord(document.querySelector('#tooltip .price').innerText);
 		const cps = numFromWord(document.querySelector("#cookiesPerSecond").innerText.slice(12));
 
-		if ([...bold].length === 1) {
+		if ([...bold].length === 1 || [...bold].length === 2) {
 			if (bold[0].innerText === "twice") {
 				const match_res = text.match(/^[a-zA-Z]+\s/);
 				if (!match_res) {
