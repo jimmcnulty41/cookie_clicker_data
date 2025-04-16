@@ -59,6 +59,15 @@ function populate_cookie_data() {
 	tooltip_then_next();
 }
 
+function unpluralize(word) {
+	const naive = word.slice(0, -2).toLowerCase();
+	if (naive.slice(-2) === "ie") {
+		return naive.slice(0,-2) + "y";
+	} else {
+		return naive;
+	}
+}
+
 function get_upgrade_data() {
 	console.log(`data starts as:`);
 	console.log(data);
@@ -92,7 +101,7 @@ function get_upgrade_data() {
 					console.error("Didn't find an affected currency in ");
 					console.error(name);
 				}
-				const affected_currency = match_res[0].slice(0, -2).toLowerCase();
+				const affected_currency = unpluralize(match_res[0]);
 				if (!data[affected_currency]) {
 					console.warn(`no data for ${affected_currency}`);
 				}
