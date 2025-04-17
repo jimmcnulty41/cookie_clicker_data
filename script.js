@@ -70,9 +70,13 @@ function unpluralize(word) {
 
 function get_currency(text) {
 	// wizard towers
-	const sdfasfd = text.match(/^Wizard towers/);
-	if (sdfasfd) {
+	const wiz = text.match(/^Wizard towers/);
+	if (wiz) {
 		return "wizard";
+	}
+	const alc = text.match(/^Alchemy labs/);
+	if (alc) {
+		return "alchemy";
 	}
 	const match_res = text.match(/^[a-zA-Z]+\s/);
 	if (!match_res) {
