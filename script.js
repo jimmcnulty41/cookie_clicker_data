@@ -82,6 +82,11 @@ function get_currency(text) {
 	if (time) {
 		return "time";
 	}
+	// "Antimatter condensers are twice as efficient.\nSweet firm bosons."
+	const anti = text.match(/^Antimatter condensers/);
+	if (anti) {
+		return "antimatter";
+	}
 	const match_res = text.match(/^[a-zA-Z]+\s/);
 	if (!match_res) {
 		console.error("Didn't find an affected currency in ");
