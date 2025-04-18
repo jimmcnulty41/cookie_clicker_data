@@ -78,6 +78,10 @@ function get_currency(text) {
 	if (alc) {
 		return "alchemy";
 	}
+	const time = text.match(/^Time machines/);
+	if (time) {
+		return "time";
+	}
 	const match_res = text.match(/^[a-zA-Z]+\s/);
 	if (!match_res) {
 		console.error("Didn't find an affected currency in ");
