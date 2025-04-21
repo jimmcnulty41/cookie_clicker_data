@@ -17,6 +17,9 @@ function numFromWord(word) {
 	if (word.match(/\d{1,3}(.\d{1,3})?\squadrillion/)) {
 		return Number.parseFloat(word.replace('quadrillion', '')) * 1000000000000000;
 	}
+	if (word.match(/\d{1,3}(.\d{1,3})?\squadrillion/)) {
+		return Number.parseFloat(word.replace('quintillion', '')) * 10000000000000000000;
+	}
 	if (word.match(/\d{1,3},\d{3}/)) {
 		return Number.parseFloat(word.replace(',', ''));
 	}
