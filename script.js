@@ -90,6 +90,12 @@ function get_currency(text) {
 	if (anti) {
 		return "antimatter";
 	}
+	// Fractal engines are twice as efficient.
+	const frac = text.match(/^Fractal engines/);
+	if (frac) {
+		return "fractal";
+	}
+	
 	const match_res = text.match(/^[a-zA-Z]+\s/);
 	if (!match_res) {
 		console.error("Didn't find an affected currency in ");
