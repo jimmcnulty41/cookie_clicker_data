@@ -95,6 +95,10 @@ function get_currency(text) {
 	if (frac) {
 		return "fractal";
 	}
+	const jav = text.match(/^Javascript console/);
+	if (jav) {
+		return "javascript";
+	}
 	
 	const match_res = text.match(/^[a-zA-Z]+\s/);
 	if (!match_res) {
