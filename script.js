@@ -20,6 +20,9 @@ function numFromWord(word) {
 	if (word.match(/\d{1,3}(.\d{1,3})?\squintillion/)) {
 		return Number.parseFloat(word.replace('quintillion', '')) * 10000000000000000000;
 	}
+	if (word.match(/\d{1,3}(.\d{1,3})?\ssextillion/)) {
+		return Number.parseFloat(word.replace('sextillion', '')) * 10000000000000000000000;
+	}
 	if (word.match(/\d{1,3},\d{3}/)) {
 		return Number.parseFloat(word.replace(',', ''));
 	}
