@@ -105,7 +105,10 @@ function get_currency(text) {
 	if (jav) {
 		return "javascript";
 	}
-	
+	const cor = text.match(/^Cortex baker/);
+	if (cor) {
+		return "cortex";
+	}
 	const match_res = text.match(/^[a-zA-Z]+\s/);
 	if (!match_res) {
 		console.error("Didn't find an affected currency in ");
